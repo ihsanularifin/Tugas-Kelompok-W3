@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class RestoranBungar {
     // Declare public variable
-    static Integer jumlahPesanan, nasiGoreng, ayamBakar, steak, kwetiaw, kambingGuling;
-    static String namaPemesan;
+    static Integer nasiGoreng, ayamBakar, steak, kwetiaw, kambingGuling;
+    static String namaPemesan, jumlahPesanan;
     static Scanner scanner = new Scanner(System.in);
 
     // Methode input reservasi
@@ -16,11 +16,11 @@ public class RestoranBungar {
         
         // input berapa banyak yang pesan
         System.out.print("Pesan untuk berapa orang \t: ");
-        jumlahPesanan = scanner.nextInt();
+        jumlahPesanan = scanner.nextLine();
 
         // input pesanan atas nama
         System.out.print("Pesanan atas nama \t\t: ");
-        namaPemesan = scanner.next();
+        namaPemesan = scanner.nextLine();
 
     }
 
@@ -71,10 +71,11 @@ public class RestoranBungar {
         double hargaKambingGuling = 98765.43;
 
         // variable perhitungan
+        Integer banyakOrangPesan = Integer.parseInt(jumlahPesanan); // mengubah value string ke int
         double totalBiayaBeli = (hargaNasiGoreng*nasiGoreng)+(hargaAyamBakar*ayamBakar)+(hargaSteak*steak)+(hargaKwetiaw*kwetiaw)+(hargaKambingGuling*kambingGuling);
         double diskon = totalBiayaBeli*0.1;
         double totalSetelahDiskon = totalBiayaBeli - diskon;
-        double totalPerOrang = totalSetelahDiskon/(jumlahPesanan);
+        double totalPerOrang = totalSetelahDiskon/(banyakOrangPesan);
 
         System.out.print("\n");
         System.out.print("Selanat meniknati nakanan anda...");
